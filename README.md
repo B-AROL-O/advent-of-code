@@ -12,4 +12,8 @@ Copyright (C) 2024-2025, [B-AROL-O Team](https://github.com/B-AROL-O), all right
 
 The source code contained in this repository and the executable distributions are licensed under the terms of the MIT license as detailed in the [LICENSE](LICENSE) file.
 
+## See also
+
+- [Davide Macario solutions to Advent of Code](https://github.com/davmacario/aoc)
+
 <!-- EOF -->
