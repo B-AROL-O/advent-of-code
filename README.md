@@ -12,9 +12,10 @@ Copyright (C) 2024-2025, [B-AROL-O Team](https://github.com/B-AROL-O), all right
 
 The source code contained in this repository and the executable distributions are licensed under the terms of the MIT license as detailed in the [LICENSE](LICENSE) file.
 
-## Other people solutions
+## Other people AoC solutions
 
 - [Alessandro Varesi](https://github.com/alv67) solutions: [2023](https://github.com/AB-Normals/advent-of-code-2023), [2024](https://github.com/AB-Normals/advent-of-code-2024), [2025](https://github.com/AB-Normals/advent-of-code-2025)
-- [Davide Macario](https://github.com/davmacario) solutions [2023 to 2025](https://github.com/davmacario/aoc)
+- [Davide Macario](https://github.com/davmacario) solutions: [2023 to 2025](https://github.com/davmacario/aoc)
+- [Eric Orso](https://github.com/OrsoEric) solutions: [2024](https://github.com/OrsoEric/2024-Advent-of-Code)
 
 <!-- EOF -->
