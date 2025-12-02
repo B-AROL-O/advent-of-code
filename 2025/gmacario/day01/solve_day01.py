@@ -7,8 +7,8 @@ print()
 CHALLENGE_DAY=1
 
 CHALLENGE_URL=f"https://adventofcode.com/2025/day/{CHALLENGE_DAY}"
-INPUT_FILE=f"day01/sample_day01.txt"
-# INPUT_FILE="day01/input_day01.txt"
+INPUT_FILE=f"day{CHALLENGE_DAY:02}/sample_day{CHALLENGE_DAY:02}.txt"
+# INPUT_FILE=f"day{CHALLENGE_DAY:02}/input_day{CHALLENGE_DAY:02}.txt"
 
 print(f"Advent of Code 2025 - Day {CHALLENGE_DAY}")
 print(f"URL: {CHALLENGE_URL}")
