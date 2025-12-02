@@ -56,8 +56,9 @@ Because the dial points at 0 a total of three times during this process, the pas
 
 Analyze the rotations in your attached document. What's the actual password to open the door?
 
-To play, please identify yourself via one of these services:
+To begin, get your puzzle input.
 
-[GitHub] [Google] [Twitter] [Reddit] - [How Does Auth Work?]
+Answer: 
+ 
 
-/!\ There is currently an issue with GitHub authentication; if it does not work, please try again later. /!\
+You can also [Share] this puzzle.
