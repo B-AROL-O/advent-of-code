@@ -7,8 +7,8 @@ print()
 CHALLENGE_DAY=1
 
 CHALLENGE_URL=f"https://adventofcode.com/2025/day/{CHALLENGE_DAY}"
-# INPUT_FILE=f"day01/sample_day01.txt"
-INPUT_FILE="day01/input_day01.txt"
+INPUT_FILE=f"day01/sample_day01.txt"
+# INPUT_FILE="day01/input_day01.txt"
 
 print(f"Advent of Code 2025 - Day {CHALLENGE_DAY}")
 print(f"URL: {CHALLENGE_URL}")
@@ -89,7 +89,7 @@ ic(input_lines)
 def solve_part1():
     ic(time.ctime())
 
-    ic("TODO solve_part1()")
+    # ic("TODO solve_part1()")
 
     pos = 50
     count_zero = 0
@@ -103,7 +103,7 @@ def solve_part1():
         else:
             print(f"ERROR: Incorrect line={line}")
         pos %= 100
-        ic(f"Processed {line} ==> new pos={pos}")
+        # ic(f"Processed {line} ==> new pos={pos}")
         if pos == 0:
             count_zero += 1
 
@@ -115,15 +115,42 @@ def solve_part1():
 def solve_part2():
     ic(time.ctime())
 
-    ic("TODO solve_part2()")
+    # ic("TODO solve_part2()")
 
-    # sum_invalid_ids_part2 = 0
-    # for p in products_id_range:
-    #     for id in range(p["from"], p["to"]+1):
-    #         # ic(id)
-    #         if not check_valid_id_part2(str(id)):
-    #             sum_invalid_ids_part2 += id
-    # print(f"Day01 Part 2 result: {sum_invalid_ids_part2}")
+    pos = 50
+    count_zero_end = 0
+    count_zero_while = 0
+
+    ic(pos, count_zero_end, count_zero_while)
+    for line in input_lines:
+        ic(f"Processing line={line}")
+        if line[:1] == 'L':
+            pos -= int(line[1:])
+        elif line[:1] == 'R':
+            pos += int(line[1:])
+        else:
+            print(f"ERROR: Incorrect line={line}")
+
+        while (pos >= 100):
+            ic(f"pos={pos} --> sub(100)")
+            pos -= 100
+            # if pos != 0:
+            ic(f"pos={pos} --> increment count_zero_while")
+            count_zero_while += 1
+        while (pos < 0):
+            ic(f"pos={pos} --> add(100)")
+            pos += 100
+            # if pos != 0:
+            # ic(f"pos={pos} --> increment_count_zero_while")
+            # count_zero_while += 1
+
+        ic(f"Processed {line} ==> new pos={pos}")
+
+        if pos == 0:
+            ic(f"pos={pos} --> increment count_zero_end")
+            count_zero_end += 1
+
+    print(f"Day01 Part 2 result: {count_zero_end + count_zero_while}")
 
     ic(time.ctime())
     pass
