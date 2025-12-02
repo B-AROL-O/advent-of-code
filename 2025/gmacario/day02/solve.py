@@ -1,8 +1,8 @@
-# https://adventofcode.com/2025/day/2
-
 import time
 
 from icecream import ic
+
+print("https://adventofcode.com/2025/day/2")
 
 """
 Check if the ID is valid (Part One).
@@ -10,7 +10,7 @@ You can find the invalid IDs by looking for any ID
 which is made only of some sequence of digits repeated twice
 """
 def check_valid_id_part1(id: str) -> bool:
-    ic(f"check_valid_id_part1(id={id})")
+    # ic(f"check_valid_id_part1(id={id})")
 
     # Odd length is valid
     if len(id) % 2:
@@ -18,7 +18,7 @@ def check_valid_id_part1(id: str) -> bool:
     
     half_length = len(id) // 2
     if id[0:half_length] == id[half_length:]:
-        ic(f"id {id} is invalid")
+        # ic(f"id {id} is invalid (0)")
         return False
 
     return True
@@ -31,7 +31,7 @@ which is made only of some sequence of digits
 repeated **at least** twice
 """
 def check_valid_id_part2(id: str) -> bool:
-    ic(f"check_valid_id_part2(id={id})")
+    # ic(f"check_valid_id_part2(id={id})")
 
     for k in range(1, len(id) // 2 + 1):
         prefix = id[0:k]
@@ -54,7 +54,7 @@ def check_valid_id_part2(id: str) -> bool:
     return True
 
 
-ic()
+# ic()
 
 # Read the puzzle input into a list of strings, one per line
 with open("day02/input_day02_gmacario.txt", 'r') as file:
@@ -72,7 +72,7 @@ for p in input_lines[0].split(','):
     })
     pass
 
-ic(products_id_range)
+# ic(products_id_range)
 
 
 def solve_part1():
@@ -83,7 +83,7 @@ def solve_part1():
             # ic(id)
             if not check_valid_id_part1(str(id)):
                 sum_invalid_ids_part1 += id
-    ic(sum_invalid_ids_part1)
+    print(f"Day02 Part 1 result: {sum_invalid_ids_part1}")
     ic(time.ctime())
 
 
@@ -96,16 +96,16 @@ def solve_part2():
             # ic(id)
             if not check_valid_id_part2(str(id)):
                 sum_invalid_ids_part2 += id
-    ic(sum_invalid_ids_part2)
+    print(f"Day02 Part 2 result: {sum_invalid_ids_part2}")
 
     ic(time.ctime())
     pass
 
 
 if __name__ == "__main__":
-    # solve_part1()
-    check_valid_id_part2("1010")
-    check_valid_id_part2("1011")
+    solve_part1()
+    # check_valid_id_part2("1010")
+    # check_valid_id_part2("1011")
     solve_part2()
     pass
 
