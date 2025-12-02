@@ -36,21 +36,28 @@ def check_valid_id_part2(id: str) -> bool:
     for k in range(1, len(id) // 2 + 1):
         prefix = id[0:k]
         pos = k
-        while pos < len(id):
+        has_match = True
+        while pos < len(id) and has_match:
             # ic(f"checking id={id}, k={k}, pos={pos}")
-            if prefix != id[pos:pos+k]:
-                return True
+            if prefix == id[pos:pos+k]:
+                # ic(f"id {id}: prefix {prefix} found at pos {pos}")
+                has_match = True
+            elif has_match:
+                # ic(f"id {id}: prefix {prefix} does not match at pos {pos}")
+                has_match = False
             pos += k
-        ic(f"id {id} is invalid")
-        return False
+        if has_match:
+            # ic(f"id {id} is invalid (2)")
+            return False
 
+    # ic(f"id {id} is valid (3)")
     return True
 
 
 ic()
 
 # Read the puzzle input into a list of strings, one per line
-with open("day02/test_day02_gmacario.txt", 'r') as file:
+with open("day02/input_day02_gmacario.txt", 'r') as file:
     input_lines = [line.rstrip() for line in file]
 
 products_id_range = []
@@ -97,6 +104,8 @@ def solve_part2():
 
 if __name__ == "__main__":
     # solve_part1()
+    check_valid_id_part2("1010")
+    check_valid_id_part2("1011")
     solve_part2()
     pass
 
