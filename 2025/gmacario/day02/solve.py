@@ -5,12 +5,12 @@ import time
 from icecream import ic
 
 """
-Check if the ID is valid.
+Check if the ID is valid (Part One).
 You can find the invalid IDs by looking for any ID
 which is made only of some sequence of digits repeated twice
 """
-def check_valid_id(id: str) -> bool:
-    # ic(f"check_valid_id(id={id})")
+def check_valid_id_part1(id: str) -> bool:
+    ic(f"check_valid_id_part1(id={id})")
 
     # Odd length is valid
     if len(id) % 2:
@@ -24,35 +24,80 @@ def check_valid_id(id: str) -> bool:
     return True
 
 
+"""
+Check if the ID is valid (Part Two).
+You can find the invalid IDs by looking for any ID
+which is made only of some sequence of digits
+repeated **at least** twice
+"""
+def check_valid_id_part2(id: str) -> bool:
+    ic(f"check_valid_id_part2(id={id})")
+
+    for k in range(1, len(id) // 2 + 1):
+        prefix = id[0:k]
+        pos = k
+        while pos < len(id):
+            # ic(f"checking id={id}, k={k}, pos={pos}")
+            if prefix != id[pos:pos+k]:
+                return True
+            pos += k
+        ic(f"id {id} is invalid")
+        return False
+
+    return True
+
+
 ic()
 
 # Read the puzzle input into a list of strings, one per line
-with open("day02/input_day02_gmacario.txt", 'r') as file:
+with open("day02/test_day02_gmacario.txt", 'r') as file:
     input_lines = [line.rstrip() for line in file]
 
-ic(time.ctime())
-
-ic(input_lines)
-
-products = input_lines[0].split(',')
-ic(products)
-
-sum_invalid_ids = 0
-for p in products:
-    ic(p)
+products_id_range = []
+for p in input_lines[0].split(','):
     p_range = p.split('-')
     # ic(p_range)
     p_from = int(p_range[0])
     p_to = int(p_range[1])
-    ic(p_from, p_to)
+    products_id_range.append({
+        "from": p_from,
+        "to": p_to
+    })
+    pass
 
-    for id in range(p_from, p_to+1):
-        # ic(id)
-        if not check_valid_id(str(id)):
-            sum_invalid_ids += id
+ic(products_id_range)
 
-ic(sum_invalid_ids)
 
-ic(time.ctime())
+def solve_part1():
+    ic(time.ctime())
+    sum_invalid_ids_part1 = 0
+    for p in products_id_range:
+        for id in range(p["from"], p["to"]+1):
+            # ic(id)
+            if not check_valid_id_part1(str(id)):
+                sum_invalid_ids_part1 += id
+    ic(sum_invalid_ids_part1)
+    ic(time.ctime())
+
+
+def solve_part2():
+    ic(time.ctime())
+
+    sum_invalid_ids_part2 = 0
+    for p in products_id_range:
+        for id in range(p["from"], p["to"]+1):
+            # ic(id)
+            if not check_valid_id_part2(str(id)):
+                sum_invalid_ids_part2 += id
+    ic(sum_invalid_ids_part2)
+
+    ic(time.ctime())
+    pass
+
+
+if __name__ == "__main__":
+    # solve_part1()
+    solve_part2()
+    pass
 
 # EOF
