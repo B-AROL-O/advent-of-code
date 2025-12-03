@@ -23,23 +23,29 @@ ic()
 
 
 def solve_part1():
-    print(f"DEBUG: solve_part1 Begin: {time.ctime()}")
+    tm_start = time.time()
+    result_part1 = 0
 
-    print("DEBUG: TODO solve_part1()")
-    result_part1 = 0   # TODO
+    ic("DEBUG: TODO solve_part1()")
 
-    print(f"DEBUG: solve_part1 End:   {time.ctime()}")
+    tm_end = time.time()
+    print(f"DEBUG: solve_part1 Begin: {time.ctime(tm_start)}")
+    print(f"DEBUG: solve_part1 End:   {time.ctime(tm_end)}")
+    print(f"DEBUG: solve_part1 Delta: {tm_end-tm_start}")
     print(f"INFO:  Day{CHALLENGE_DAY:02} solve_part1 result: {result_part1}")
     return result_part1
 
 
 def solve_part2():
-    print(f"DEBUG: solve_part1 Begin: {time.ctime()}")
+    tm_start = time.time()
+    result_part2 = 0
 
-    print("DEBUG: TODO solve_part2()")
-    result_part2 = 0   # TODO
+    ic("DEBUG: TODO solve_part2()")
 
-    print(f"DEBUG: solve_part1 End:   {time.ctime()}")
+    tm_end = time.time()
+    print(f"DEBUG: solve_part2 Begin: {time.ctime(tm_start)}")
+    print(f"DEBUG: solve_part2 End:   {time.ctime(tm_end)}")
+    print(f"DEBUG: solve_part2 Delta: {tm_end-tm_start}")
     print(f"INFO:  Day{CHALLENGE_DAY:02} solve_part2 result: {result_part2}")
     return result_part2
 
