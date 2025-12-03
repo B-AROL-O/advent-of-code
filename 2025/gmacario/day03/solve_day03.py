@@ -14,6 +14,20 @@ print(f"Advent of Code 2025 - Day {CHALLENGE_DAY}")
 print(f"URL: {CHALLENGE_URL}")
 
 
+def find_largest_joltage(bank: str) -> int:
+    result = 0
+
+    for k1 in range(len(bank) - 1):
+        battery_1 = bank[k1]
+        for k2 in range(k1+1, len(bank)):
+            battery_2 = bank[k2]
+            joltage = 10 * int(battery_1) + int(battery_2)
+            if joltage > result:
+                # ic(f"Got better joltage {joltage} from bank {bank}[{k1},{k2}]")
+                result = joltage
+    # ic(f"find_largest_joltage({bank}) return {result}")
+    return result
+
 # ic()
 
 # Read the puzzle input into a list of strings, one per line
@@ -26,8 +40,9 @@ ic(input_lines)
 def solve_part1():
     ic(time.ctime())
 
-    ic("TODO solve_part1()")
-    result_part1 = 0;   # TODO
+    result_part1 = 0;
+    for bank in input_lines:
+        result_part1 += find_largest_joltage(bank)
 
     print(f"Day{CHALLENGE_DAY:02} Part 1 result: {result_part1}")
     
