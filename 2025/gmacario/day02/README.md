@@ -72,7 +72,7 @@ Your puzzle answer was `85513235135`.
 
 At this point, you should [return to your Advent calendar](https://adventofcode.com/2025) and try another puzzle.
 
-If you still want to see it, you can [get your puzzle input]().
+If you still want to see it, you can [get your puzzle input](https://adventofcode.com/2025/day/2/input).
 
 You can also \[Share\] this puzzle.
 
