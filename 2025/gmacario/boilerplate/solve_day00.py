@@ -27,7 +27,7 @@ def solve_part1():
     ic(time.ctime())
 
     ic("TODO solve_part1()")
-    result_part1 = 0;   # TODO
+    result_part1 = 0   # TODO
 
     print(f"Day{CHALLENGE_DAY:02} Part 1 result: {result_part1}")
     
@@ -38,7 +38,7 @@ def solve_part2():
     ic(time.ctime())
 
     ic("TODO solve_part2()")
-    result_part2 = 0;   # TODO
+    result_part2 = 0   # TODO
 
     print(f"Day{CHALLENGE_DAY:02} Part 2 result: {result_part2}")
 
