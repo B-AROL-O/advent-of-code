@@ -1,6 +1,6 @@
-# 2024
+# 2025
 
-Solutions to [Advent of Code 2024](https://adventofcode.com/2025) by
+Solutions to [Advent of Code 2025](https://adventofcode.com/2025) by
 
 <!-- - [Alessandro Varesi](alv67/) -->
 <!-- - [Alessio Chessa](aleche28/) -->
