@@ -1,8 +1,36 @@
 import time
 
-from icecream import ic
+# from icecream import ic
 
-print("https://adventofcode.com/2025/day/2")
+CHALLENGE_DAY=2
+
+CHALLENGE_URL=f"https://adventofcode.com/2025/day/{CHALLENGE_DAY}"
+INPUT_FILE=f"day{CHALLENGE_DAY:02}/sample_day{CHALLENGE_DAY:02}.txt"
+INPUT_FILE=f"day{CHALLENGE_DAY:02}/input_day{CHALLENGE_DAY:02}.txt"
+
+print(f"INFO:  Advent of Code 2025 - Day {CHALLENGE_DAY}")
+print(f"INFO:  URL: {CHALLENGE_URL}")
+
+# ic()
+
+# Read the puzzle input into a list of strings, one per line
+with open(INPUT_FILE, 'r') as file:
+    input_lines = [line.rstrip() for line in file]
+
+products_id_range = []
+for p in input_lines[0].split(','):
+    p_range = p.split('-')
+    # ic(p_range)
+    p_from = int(p_range[0])
+    p_to = int(p_range[1])
+    products_id_range.append({
+        "from": p_from,
+        "to": p_to
+    })
+    pass
+
+# ic(products_id_range)
+
 
 """
 Check if the ID is valid (Part One).
@@ -54,41 +82,33 @@ def check_valid_id_part2(id: str) -> bool:
     return True
 
 
-# ic()
-
-# Read the puzzle input into a list of strings, one per line
-with open("day02/input_day02_gmacario.txt", 'r') as file:
-    input_lines = [line.rstrip() for line in file]
-
-products_id_range = []
-for p in input_lines[0].split(','):
-    p_range = p.split('-')
-    # ic(p_range)
-    p_from = int(p_range[0])
-    p_to = int(p_range[1])
-    products_id_range.append({
-        "from": p_from,
-        "to": p_to
-    })
-    pass
-
-# ic(products_id_range)
-
-
 def solve_part1():
-    ic(time.ctime())
+    tm_start = time.time()
+    result_part1 = 0
+
+    # ic("DEBUG: TODO solve_part1()")
+
     sum_invalid_ids_part1 = 0
     for p in products_id_range:
         for id in range(p["from"], p["to"]+1):
             # ic(id)
             if not check_valid_id_part1(str(id)):
                 sum_invalid_ids_part1 += id
-    print(f"Day02 Part 1 result: {sum_invalid_ids_part1}")
-    ic(time.ctime())
+    result_part1 = sum_invalid_ids_part1
+
+    tm_end = time.time()
+    print(f"DEBUG: solve_part1 Begin: {time.ctime(tm_start)}")
+    print(f"DEBUG: solve_part1 End:   {time.ctime(tm_end)}")
+    print(f"DEBUG: solve_part1 Delta: {tm_end-tm_start}")
+    print(f"INFO:  Day{CHALLENGE_DAY:02} solve_part1 result: {result_part1}")
+    return result_part1
 
 
 def solve_part2():
-    ic(time.ctime())
+    tm_start = time.time()
+    result_part2 = 0
+
+    # ic("DEBUG: TODO solve_part2()")
 
     sum_invalid_ids_part2 = 0
     for p in products_id_range:
@@ -96,10 +116,14 @@ def solve_part2():
             # ic(id)
             if not check_valid_id_part2(str(id)):
                 sum_invalid_ids_part2 += id
-    print(f"Day02 Part 2 result: {sum_invalid_ids_part2}")
+    result_part2 = sum_invalid_ids_part2
 
-    ic(time.ctime())
-    pass
+    tm_end = time.time()
+    print(f"DEBUG: solve_part2 Begin: {time.ctime(tm_start)}")
+    print(f"DEBUG: solve_part2 End:   {time.ctime(tm_end)}")
+    print(f"DEBUG: solve_part2 Delta: {tm_end-tm_start}")
+    print(f"INFO:  Day{CHALLENGE_DAY:02} solve_part2 result: {result_part2}")
+    return result_part2
 
 
 if __name__ == "__main__":
