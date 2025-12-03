@@ -13,8 +13,7 @@ INPUT_FILE=f"day{CHALLENGE_DAY:02}/sample_day{CHALLENGE_DAY:02}.txt"
 print(f"INFO:  Advent of Code 2025 - Day {CHALLENGE_DAY}")
 print(f"INFO:  URL: {CHALLENGE_URL}")
 
-
-# ic()
+ic()
 
 # Read the puzzle input into a list of strings, one per line
 # with open(INPUT_FILE, 'r') as file:
