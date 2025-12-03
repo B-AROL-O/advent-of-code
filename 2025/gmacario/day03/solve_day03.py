@@ -47,7 +47,7 @@ def max_k_subseq(s: str, k: int = 12) -> int:
     Return the integer represented by the lexicographically largest
     subsequence of length k of the digit string s.
     """
-    stack = []                         # will contain characters, not ints
+    stack: list[str] = []                         # will contain characters, not ints
     n = len(s)
 
     for i, c in enumerate(s):
