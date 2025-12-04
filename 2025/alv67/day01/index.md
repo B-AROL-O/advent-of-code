@@ -32,7 +32,7 @@ You could follow the instructions, but your recent required official North Pole 
 
 For example, suppose the attached document contained the following rotations:
 
-``` text
+```text
 L68
 L30
 R48

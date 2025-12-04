@@ -45,7 +45,7 @@ The joltage output for the bank is still the number formed by the digits of the 
 
 Consider again the example from before:
 
-``` text
+```text
 987654321111111
 811111111111119
 234234234234278
