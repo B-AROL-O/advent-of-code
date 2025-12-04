@@ -29,7 +29,7 @@ For example:
 
 The forklifts can only access a roll of paper if there are _fewer than four rolls of paper_ in the eight adjacent positions. If you can figure out which rolls of paper the forklifts can access, they'll spend less time looking and more time breaking down the wall to the cafeteria.
 
-In this example, there are `_13`_ rolls of paper that can be accessed by a forklift (marked with `x`):
+In this example, there are _`13`_ rolls of paper that can be accessed by a forklift (marked with `x`):
 
 ```text
 ..xx.xx@x.
@@ -48,7 +48,7 @@ Consider your complete diagram of the paper roll locations. _How many rolls of p
 
 Your puzzle answer was `1457`.
 
-**The first half of this puzzle is complete! It provides one gold star: ***
+**The first half of this puzzle is complete! It provides one gold star: \*\***
 
 ## --- Part Two ---
 
