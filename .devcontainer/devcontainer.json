@@ -23,6 +23,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "DavidAnson.vscode-markdownlint",
         "esbenp.prettier-vscode",
         "mhutchie.git-graph",
         "ms-python.black-formatter",
