@@ -32,8 +32,7 @@ def main():
 
     print("Solution part 1: ", fresh)
 
-    # ranges are sorted by starting number ascending,
-    # I want to "resize" them cutting the
+    # ranges are sorted by starting number ascending, ending number ascending
     untangledRanges = []
     curStart = ranges[0][0]
     curEnd = ranges[0][1]
@@ -46,7 +45,9 @@ def main():
             #   |---|
             # becomes:
             # |-----|
-            curEnd = rng[1]
+            curEnd = max(curEnd, rng[1])
+            # the following code is buggy because it shrinks when the interval is included
+            # curEnd = rng[1]
         else:
             # not overlapping:
             # save current one and restart from new one
