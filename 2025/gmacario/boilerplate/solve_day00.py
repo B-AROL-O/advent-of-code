@@ -2,10 +2,10 @@ import time
 
 from icecream import ic
 
-CHALLENGE_DAY=0
+CHALLENGE_DAY = 0
 
-CHALLENGE_URL=f"https://adventofcode.com/2025/day/{CHALLENGE_DAY}"
-INPUT_FILE=f"day{CHALLENGE_DAY:02}/sample_day{CHALLENGE_DAY:02}.txt"
+CHALLENGE_URL = f"https://adventofcode.com/2025/day/{CHALLENGE_DAY}"
+INPUT_FILE = f"day{CHALLENGE_DAY:02}/sample_day{CHALLENGE_DAY:02}.txt"
 # INPUT_FILE=f"day{CHALLENGE_DAY:02}/input_day{CHALLENGE_DAY:02}.txt"
 
 print(f"INFO:  Advent of Code 2025 - Day {CHALLENGE_DAY}")
@@ -30,7 +30,7 @@ def solve_part1():
     tm_end = time.time()
     print(f"DEBUG: solve_part1 Begin: {time.ctime(tm_start)}")
     print(f"DEBUG: solve_part1 End:   {time.ctime(tm_end)}")
-    print(f"DEBUG: solve_part1 Delta: {tm_end-tm_start}")
+    print(f"DEBUG: solve_part1 Delta: {tm_end - tm_start}")
     print(f"INFO:  Day{CHALLENGE_DAY:02} solve_part1 result: {result_part1}")
     return result_part1
 
@@ -44,7 +44,7 @@ def solve_part2():
     tm_end = time.time()
     print(f"DEBUG: solve_part2 Begin: {time.ctime(tm_start)}")
     print(f"DEBUG: solve_part2 End:   {time.ctime(tm_end)}")
-    print(f"DEBUG: solve_part2 Delta: {tm_end-tm_start}")
+    print(f"DEBUG: solve_part2 Delta: {tm_end - tm_start}")
     print(f"INFO:  Day{CHALLENGE_DAY:02} solve_part2 result: {result_part2}")
     return result_part2
 
