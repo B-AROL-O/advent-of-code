@@ -24,18 +24,18 @@ fresh_ingredients = []
 available_ingredients = []
 find_fresh_ingredients = True
 
-for l in input_lines:
-    if l == '':
+for line in input_lines:
+    if line == '':
         find_fresh_ingredients = False
         continue
 
     if find_fresh_ingredients:
         fresh_ingredients.append({
-            "from": int(l.split("-")[0]),
-            "to": int(l.split("-")[1])
+            "from": int(line.split("-")[0]),
+            "to": int(line.split("-")[1])
         })
     else:
-        available_ingredients.append(int(l))
+        available_ingredients.append(int(line))
 
 # ic(fresh_ingredients)
 # ic(available_ingredients)
