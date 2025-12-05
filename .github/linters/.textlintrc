@@ -3,6 +3,10 @@
     "comments": true
   },
   "rules": {
-    "terminology": true
+    "terminology": {
+      "exclude": [
+        "blank line(s)?"
+      ]
+    }
   }
 }
