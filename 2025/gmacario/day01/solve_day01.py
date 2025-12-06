@@ -4,11 +4,11 @@ import time
 
 print()
 
-CHALLENGE_DAY=1
+CHALLENGE_DAY = 1
 
-CHALLENGE_URL=f"https://adventofcode.com/2025/day/{CHALLENGE_DAY}"
-INPUT_FILE=f"day{CHALLENGE_DAY:02}/sample_day{CHALLENGE_DAY:02}.txt"
-INPUT_FILE=f"day{CHALLENGE_DAY:02}/input_day{CHALLENGE_DAY:02}.txt"
+CHALLENGE_URL = f"https://adventofcode.com/2025/day/{CHALLENGE_DAY}"
+INPUT_FILE = f"day{CHALLENGE_DAY:02}/sample_day{CHALLENGE_DAY:02}.txt"
+INPUT_FILE = f"day{CHALLENGE_DAY:02}/input_day{CHALLENGE_DAY:02}.txt"
 
 print(f"INFO:  Advent of Code 2025 - Day {CHALLENGE_DAY}")
 print(f"INFO:  URL: {CHALLENGE_URL}")
@@ -16,7 +16,7 @@ print(f"INFO:  URL: {CHALLENGE_URL}")
 # ic()
 
 # Read the puzzle input into a list of strings, one per line
-with open(INPUT_FILE, 'r') as file:
+with open(INPUT_FILE, "r") as file:
     input_lines = [line.rstrip() for line in file]
 
 # ic(input_lines)
@@ -33,9 +33,9 @@ def solve_part1():
 
     for line in input_lines:
         # ic(f"Processing line={line}")
-        if line[:1] == 'L':
+        if line[:1] == "L":
             pos -= int(line[1:])
-        elif line[:1] == 'R':
+        elif line[:1] == "R":
             pos += int(line[1:])
         else:
             print(f"ERROR: Incorrect line={line}")
@@ -48,7 +48,7 @@ def solve_part1():
     tm_end = time.time()
     print(f"DEBUG: solve_part1 Begin: {time.ctime(tm_start)}")
     print(f"DEBUG: solve_part1 End:   {time.ctime(tm_end)}")
-    print(f"DEBUG: solve_part1 Delta: {tm_end-tm_start}")
+    print(f"DEBUG: solve_part1 Delta: {tm_end - tm_start}")
     print(f"INFO:  Day{CHALLENGE_DAY:02} solve_part1 result: {result_part1}")
     return result_part1
 
@@ -107,7 +107,7 @@ def solve_part2():
         mod = n % 100
         prev_sum = sum
 
-        if line[0] == 'R':
+        if line[0] == "R":
             # print(str(sum) + " + " + line[1:], end="")
             sum += mod
         else:
@@ -129,7 +129,7 @@ def solve_part2():
     tm_end = time.time()
     print(f"DEBUG: solve_part2 Begin: {time.ctime(tm_start)}")
     print(f"DEBUG: solve_part2 End:   {time.ctime(tm_end)}")
-    print(f"DEBUG: solve_part2 Delta: {tm_end-tm_start}")
+    print(f"DEBUG: solve_part2 Delta: {tm_end - tm_start}")
     print(f"INFO:  Day{CHALLENGE_DAY:02} solve_part2 result: {result_part2}")
     return result_part2
 
