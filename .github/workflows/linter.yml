@@ -20,24 +20,33 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           # super-linter needs the full git history to get the
           # list of files that changed across commits
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Super-linter
-        uses: super-linter/super-linter@v7.1.0 # x-release-please-version
+        uses: super-linter/super-linter@v8.3.0 # x-release-please-version
         env:
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_BIOME_FORMAT: false
           VALIDATE_CLANG_FORMAT: false
+          VALIDATE_GITHUB_ACTIONS_ZIZMOR: false
           VALIDATE_GITLEAKS: false
           VALIDATE_JSON: false
+          VALIDATE_JUPYTER_NBQA_FLAKE8: false
+          VALIDATE_JUPYTER_NBQA_ISORT: false
+          VALIDATE_JUPYTER_NBQA_MYPY: false
+          VALIDATE_JUPYTER_NBQA_PYLINT: false
+          VALIDATE_JUPYTER_NBQA_RUFF: false
           VALIDATE_PYTHON_BLACK: false
           VALIDATE_PYTHON_FLAKE8: false
           VALIDATE_PYTHON_ISORT: false
           VALIDATE_PYTHON_PYINK: false
           VALIDATE_PYTHON_PYLINT: false
+          VALIDATE_PYTHON_RUFF_FORMAT: false
           DEFAULT_BRANCH: main
 # EOF
