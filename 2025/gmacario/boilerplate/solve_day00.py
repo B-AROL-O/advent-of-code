@@ -15,7 +15,7 @@ print(f"INFO:  INPUT_FILE: {INPUT_FILE}")
 ic()
 
 # Read the puzzle input into a list of strings, one per line
-with open(INPUT_FILE, 'r') as file:
+with open(INPUT_FILE, "r") as file:
     input_lines = [line.rstrip() for line in file]
 
 ic(input_lines)
