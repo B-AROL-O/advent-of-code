@@ -2,30 +2,58 @@ import time
 
 from icecream import ic
 
-CHALLENGE_DAY=0
+CHALLENGE_DAY=5
 
 CHALLENGE_URL=f"https://adventofcode.com/2025/day/{CHALLENGE_DAY}"
 INPUT_FILE=f"day{CHALLENGE_DAY:02}/sample_day{CHALLENGE_DAY:02}.txt"
-# INPUT_FILE=f"day{CHALLENGE_DAY:02}/input_day{CHALLENGE_DAY:02}.txt"
+INPUT_FILE=f"day{CHALLENGE_DAY:02}/input_day{CHALLENGE_DAY:02}.txt"
 
 print(f"INFO:  Advent of Code 2025 - Day {CHALLENGE_DAY}")
 print(f"INFO:  URL: {CHALLENGE_URL}")
 print(f"INFO:  INPUT_FILE: {INPUT_FILE}")
 
-ic()
+# ic()
 
 # Read the puzzle input into a list of strings, one per line
 with open(INPUT_FILE, 'r') as file:
     input_lines = [line.rstrip() for line in file]
 
-ic(input_lines)
+# ic(input_lines)
 
+fresh_ingredients = []
+available_ingredients = []
+find_fresh_ingredients = True
+
+for line in input_lines:
+    if line == '':
+        find_fresh_ingredients = False
+        continue
+
+    if find_fresh_ingredients:
+        fresh_ingredients.append({
+            "from": int(line.split("-")[0]),
+            "to": int(line.split("-")[1])
+        })
+    else:
+        available_ingredients.append(int(line))
+
+# ic(fresh_ingredients)
+# ic(available_ingredients)
 
 def solve_part1():
     tm_start = time.time()
     result_part1 = 0
 
-    ic("DEBUG: TODO solve_part1()")
+    # ic("DEBUG: TODO solve_part1()")
+
+    for id in available_ingredients:
+        # ic(f"checking freshness of {id}")
+        for r in fresh_ingredients:
+            if r["from"] <= id <= r["to"]:
+                # ic(f"ingredient {id} is fresh")
+                result_part1 += 1
+                break
+            # ic(f"ingredient {id} is spoiled according to {r}")
 
     tm_end = time.time()
     print(f"DEBUG: solve_part1 Begin: {time.ctime(tm_start)}")
