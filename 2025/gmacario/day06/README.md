@@ -11,10 +11,10 @@ Cephalopod math doesn't look that different from normal math. The math worksheet
 However, the problems are arranged a little strangely; they seem to be presented next to each other in a very long horizontal list. For example:
 
 ```text
-123 328  51 64 
- 45 64  387 23 
+123 328  51 64
+ 45 64  387 23
   6 98  215 314
-*   +   *   +  
+*   +   *   +
 ```
 
 Each problem's numbers are arranged vertically; at the bottom of the problem is the symbol for the operation that needs to be performed. Problems are separated by a full column of only spaces. The left/right alignment of numbers within each problem can be ignored.
