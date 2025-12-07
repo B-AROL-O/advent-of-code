@@ -8,7 +8,7 @@ import random
 import re
 import tkinter as tk
 
-puzzle = {"filename": "input.txt", "width": 101, "height": 103}
+puzzle = {"filename": "input.txt", "width": int(101), "height": int(103)}
 
 # decomment next line for test
 # puzzle = {"filename": "test.txt", "width": 11, "height": 7} #
@@ -177,7 +177,7 @@ root.title("Restroom")
 
 new_map = restroom.get_map()
 canvas = tk.Canvas(
-    root, width=int(puzzle["width"]) * 9, height=int(puzzle["height"]) * 9, bg="black"
+    root, width=puzzle["width"] * 9, height=puzzle["height"] * 9, bg="black"
 )
 canvas.pack()
 
