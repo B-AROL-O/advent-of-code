@@ -21,36 +21,38 @@ ic()
 with open(INPUT_FILE, "r") as file:
     input_lines = [line.rstrip() for line in file]
 
+# input_lines = input_lines[0:5]  # DEBUG
+
 ic(input_lines)
 
-grid = []
-row = 0
-start_pos = (-1, -1)  # Start with invalid position
-for line in input_lines:
-    ic(line)
-    buf = []
-    for col in range(len(line)):
-        ch = line[col:col+1]
-        assert ch in ['S', '^', '.']
-        buf.append(ch)
-        if ch == "S":
-            assert start_pos == (-1, -1)
-            start_pos = (row, col)
-        # elif ch == ".":
-        #     pass
-        # elif ch == "^":
-        #     pass
-        # else:
-        #     ic(f"ERROR: Unhandled ch={ch} at {(row, col)}")
+# grid = []
+# row = 0
+# start_pos = (-1, -1)  # Start with invalid position
+# for line in input_lines:
+#     ic(line)
+#     buf = []
+#     for col in range(len(line)):
+#         ch = line[col:col+1]
+#         assert ch in ['S', '^', '.']
+#         buf.append(ch)
+#         if ch == "S":
+#             assert start_pos == (-1, -1)
+#             start_pos = (row, col)
+#         # elif ch == ".":
+#         #     pass
+#         # elif ch == "^":
+#         #     pass
+#         # else:
+#         #     ic(f"ERROR: Unhandled ch={ch} at {(row, col)}")
 
-    grid.append(buf)
-    col += 1
-assert not start_pos == (-1, -1)
+#     grid.append(buf)
+#     col += 1
+# assert not start_pos == (-1, -1)
 
-ic(grid)
-ic(grid[0][7])
+# ic(grid)
+# ic(grid[0][7])
 
-# Credits: <https://openwebui.gmacario.it/c/f5029843-7219-49a2-b8b4-439d364fc1b1>
+# Thanks to AI: <https://openwebui.gmacario.it/c/f5029843-7219-49a2-b8b4-439d364fc1b1>
 #   - Server: <https://openwebui.gmacario.it>
 #   - OpenWebUI: v0.6.41
 #   - Ollama: 0.13.1
@@ -59,7 +61,11 @@ ic(grid[0][7])
 # Prompt:
 #   Solve using Python
 #   (paste contents of README.md)
+#
+# Plus some HI to implement manual corrections
+#
 def solve_beams(grid, start_row, start_col):
+    ic(f"solve_beams(grid, start_row={start_row}, start_col={start_col})")
     if not grid or not grid[0]:
         return 0
     rows = len(grid)
@@ -69,16 +75,23 @@ def solve_beams(grid, start_row, start_col):
     splits = 0
     
     while q:
+        # ic(q)
         r, c = q.popleft()
         if r >= rows or c < 0 or c >= cols:
             continue  # Skip if out of bounds
         cell = grid[r][c]
         if cell == '^':
             splits += 1
-            q.append((r+1, c))
-            q.append((r+1, c))
+            ic(f"new splits={splits}")
+            # Each '^' splits into two downward beams
+            if c - 1 >= 0 and q.count((r+1, c-1)) == 0:
+                q.append((r+1, c-1))
+            if c + 1 < cols  and q.count((r+1, c+1)) == 0:
+                q.append((r+1, c+1))
         else:  # cell == '.'
-            q.append((r+1, c))
+            # Continue downward with one beam
+            if q.count((r+1, c)) == 0:
+                q.append((r+1, c))
     return splits
 
 
@@ -87,7 +100,8 @@ def solve_part1():
     result_part1 = 0
 
     ic("DEBUG: TODO solve_part1()")
-    result_part1 = solve_beams(grid, start_pos[0], start_pos[1])
+    # result_part1 = solve_beams(grid, start_pos[0], start_pos[1])
+    result_part1 = solve_beams(input_lines, 0, input_lines[0].index('S'))
 
     tm_end = time.time()
     print(f"DEBUG: solve_part1 Begin: {time.ctime(tm_start)}")
