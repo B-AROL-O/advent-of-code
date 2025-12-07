@@ -2,13 +2,14 @@ import time
 
 from icecream import ic
 
+CHALLENGE_YEAR = 2025
 CHALLENGE_DAY = 0
 
-CHALLENGE_URL = f"https://adventofcode.com/2025/day/{CHALLENGE_DAY}"
+CHALLENGE_URL = f"https://adventofcode.com/{CHALLENGE_YEAR}/day/{CHALLENGE_DAY}"
 INPUT_FILE = f"day{CHALLENGE_DAY:02}/sample_day{CHALLENGE_DAY:02}.txt"
 # INPUT_FILE=f"day{CHALLENGE_DAY:02}/input_day{CHALLENGE_DAY:02}.txt"
 
-print(f"INFO:  Advent of Code 2025 - Day {CHALLENGE_DAY}")
+print(f"INFO:  Advent of Code {CHALLENGE_YEAR} - Day {CHALLENGE_DAY}")
 print(f"INFO:  URL: {CHALLENGE_URL}")
 print(f"INFO:  INPUT_FILE: {INPUT_FILE}")
 
@@ -51,9 +52,6 @@ def solve_part2():
 
 if __name__ == "__main__":
     solve_part1()
-    # check_valid_id_part2("1010")
-    # check_valid_id_part2("1011")
     solve_part2()
-    pass
 
 # EOF
