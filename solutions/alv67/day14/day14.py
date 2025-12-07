@@ -177,7 +177,7 @@ root.title("Restroom")
 
 new_map = restroom.get_map()
 canvas = tk.Canvas(
-    root, width=puzzle["width"] * 9, height=puzzle["height"] * 9, bg="black"
+    root, width=int(puzzle["width"]) * 9, height=int(puzzle["height"]) * 9, bg="black"
 )
 canvas.pack()
 
