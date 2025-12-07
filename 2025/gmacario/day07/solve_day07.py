@@ -9,22 +9,22 @@ CHALLENGE_DAY = 7
 
 CHALLENGE_URL = f"https://adventofcode.com/{CHALLENGE_YEAR}/day/{CHALLENGE_DAY}"
 INPUT_FILE = f"day{CHALLENGE_DAY:02}/sample_day{CHALLENGE_DAY:02}.txt"
-# INPUT_FILE=f"day{CHALLENGE_DAY:02}/input_day{CHALLENGE_DAY:02}.txt"
+INPUT_FILE=f"day{CHALLENGE_DAY:02}/input_day{CHALLENGE_DAY:02}.txt"
 
 print(f"INFO:  Advent of Code {CHALLENGE_YEAR} - Day {CHALLENGE_DAY}")
 print(f"INFO:  URL: {CHALLENGE_URL}")
 print(f"INFO:  INPUT_FILE: {INPUT_FILE}")
 
-ic()
+# ic()
 
 # Read the puzzle input into a list of strings, one per line
 with open(INPUT_FILE, "r") as file:
     input_lines = [line.rstrip() for line in file]
 
-# input_lines = input_lines[0:5]  # DEBUG
+# ic(input_lines)
 
-ic(input_lines)
-
+# SANITY CHECKS ON input_lines
+#
 # grid = []
 # row = 0
 # start_pos = (-1, -1)  # Start with invalid position
@@ -44,11 +44,11 @@ ic(input_lines)
 #         #     pass
 #         # else:
 #         #     ic(f"ERROR: Unhandled ch={ch} at {(row, col)}")
-
+#
 #     grid.append(buf)
 #     col += 1
 # assert not start_pos == (-1, -1)
-
+#
 # ic(grid)
 # ic(grid[0][7])
 
@@ -65,7 +65,7 @@ ic(input_lines)
 # Plus some HI to implement manual corrections
 #
 def solve_beams(grid, start_row, start_col):
-    ic(f"solve_beams(grid, start_row={start_row}, start_col={start_col})")
+    # ic(f"solve_beams(grid, start_row={start_row}, start_col={start_col})")
     if not grid or not grid[0]:
         return 0
     rows = len(grid)
@@ -82,7 +82,7 @@ def solve_beams(grid, start_row, start_col):
         cell = grid[r][c]
         if cell == '^':
             splits += 1
-            ic(f"new splits={splits}")
+            # ic(f"new splits={splits}")
             # Each '^' splits into two downward beams
             if c - 1 >= 0 and q.count((r+1, c-1)) == 0:
                 q.append((r+1, c-1))
@@ -99,8 +99,7 @@ def solve_part1():
     tm_start = time.time()
     result_part1 = 0
 
-    ic("DEBUG: TODO solve_part1()")
-    # result_part1 = solve_beams(grid, start_pos[0], start_pos[1])
+    # ic("DEBUG: TODO solve_part1()")
     result_part1 = solve_beams(input_lines, 0, input_lines[0].index('S'))
 
     tm_end = time.time()
