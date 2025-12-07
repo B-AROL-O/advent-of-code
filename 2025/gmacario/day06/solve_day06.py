@@ -9,7 +9,7 @@ CHALLENGE_DAY = 6
 
 CHALLENGE_URL = f"https://adventofcode.com/{CHALLENGE_YEAR}/day/{CHALLENGE_DAY}"
 INPUT_FILE = f"day{CHALLENGE_DAY:02}/sample_day{CHALLENGE_DAY:02}.txt"
-INPUT_FILE=f"day{CHALLENGE_DAY:02}/input_day{CHALLENGE_DAY:02}.txt"
+# INPUT_FILE=f"day{CHALLENGE_DAY:02}/input_day{CHALLENGE_DAY:02}.txt"
 
 print(f"INFO:  Advent of Code {CHALLENGE_YEAR} - Day {CHALLENGE_DAY}")
 print(f"INFO:  URL: {CHALLENGE_URL}")
@@ -29,6 +29,9 @@ def product(iterable):
     return reduce(operator.mul, iterable, 1)
 
 
+# Credits: <https://openwebui.gmacario.it/c/f3c5e014-6341-40c1-be55-6e5307c065b5>
+# plus some minor modifications by gmacario
+#
 def solve_part1_by_gpt_oss_120(raw_lines) -> int:
     # # ---------- read and pad input ----------
     # raw_lines = [line.rstrip('\n') for line in sys.stdin.readlines()]
@@ -36,7 +39,7 @@ def solve_part1_by_gpt_oss_120(raw_lines) -> int:
     #     print(0)
     #     return
 
-    height = len(raw_lines)
+    # height = len(raw_lines)
     width = max(len(line) for line in raw_lines)
     # pad each line to the same width with spaces
     lines = [line.ljust(width) for line in raw_lines]
