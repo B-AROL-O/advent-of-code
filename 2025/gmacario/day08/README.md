@@ -53,9 +53,21 @@ After making the ten shortest connections, there are _11_ circuits: one circuit 
 
 Your list contains many junction boxes; connect together the _1000_ pairs of junction boxes which are closest together. Afterward, _what do you get if you multiply together the sizes of the three largest circuits?_
 
-To begin, [get your puzzle input](https://adventofcode.com/2025/day/8/input).
+Your puzzle answer was `47040`.
+
+**The first half of this puzzle is complete! It provides one gold star: \***
+
+## --- Part Two ---
+
+The Elves were right; they _definitely_ don't have enough extension cables. You'll need to keep connecting junction boxes together until they're all in _one large circuit_.
+
+Continuing the above example, the first connection which causes all of the junction boxes to form a single circuit is between the junction boxes at `216,146,977` and `117,168,530`. The Elves need to know how far those junction boxes are from the wall so they can pick the right extension cable; multiplying the X coordinates of those two junction boxes (`216` and `117`) produces _`25272`_.
+
+Continue connecting the closest unconnected pairs of junction boxes together until they're all in the same circuit. _What do you get if you multiply together the X coordinates of the last two junction boxes you need to connect?_
 
 Answer: TODO
+
+Although it hasn't changed, you can still get your puzzle [input](https://adventofcode.com/2025/day/8/input).
 
 You can also \[Share\] this puzzle.
 
