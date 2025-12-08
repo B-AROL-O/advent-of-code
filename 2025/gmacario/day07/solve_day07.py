@@ -5,7 +5,7 @@ from collections import deque
 from functools import lru_cache
 from typing import List
 
-from icecream import ic
+# from icecream import ic
 
 CHALLENGE_YEAR = 2025
 CHALLENGE_DAY = 7

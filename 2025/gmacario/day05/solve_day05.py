@@ -1,5 +1,7 @@
 import time
 
+from typing import List
+
 # from icecream import ic
 
 CHALLENGE_DAY = 5
@@ -53,14 +55,12 @@ def solve_part2_with_ai(input_lines: List[str]) -> int
 
 where `input_lines` is a list of string produced by reading the input file as per the provided example:
 
-(paste contents of day07/sample_day07.txt)
+(paste contents of day05/sample_day07.txt)
 
 Here is the full text of the challenge:
 
-(paste contents of day07/README.md)
+(paste contents of day05/README.md)
 """
-from typing import List
-
 def solve_part2_with_ai(input_lines: List[str]) -> int:
     """
     Counts how many distinct integer IDs are covered by the fresh‑ID ranges
