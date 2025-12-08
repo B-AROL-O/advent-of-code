@@ -1,6 +1,6 @@
 import time
 
-from icecream import ic
+# from icecream import ic
 
 CHALLENGE_DAY = 5
 
@@ -40,6 +40,69 @@ for line in input_lines:
 # ic(available_ingredients)
 
 
+"""
+Credits: <https://openwebui.gmacario.it/c/aa5b67d6-ccb6-4b66-a94f-914f2ba46d67>
+
+Prompt:
+
+Solve Part Two of the following challenge by creating a Python function with the following signature:
+
+```python
+def solve_part2_with_ai(input_lines: List[str]) -> int
+```
+
+where `input_lines` is a list of string produced by reading the input file as per the provided example:
+
+(paste contents of day07/sample_day07.txt)
+
+Here is the full text of the challenge:
+
+(paste contents of day07/README.md)
+"""
+from typing import List
+
+def solve_part2_with_ai(input_lines: List[str]) -> int:
+    """
+    Counts how many distinct integer IDs are covered by the fresh‑ID ranges
+    appearing before the first blank line of the input.
+    """
+    # -----------------------------------------------------------------
+    # 1. read the ranges (stop at the first blank line)
+    ranges = []
+    for line in input_lines:
+        if line.strip() == "":
+            break
+        low_str, high_str = line.split('-')
+        low, high = int(low_str), int(high_str)
+        ranges.append((low, high))
+
+    if not ranges:                # no ranges at all
+        return 0
+
+    # -----------------------------------------------------------------
+    # 2. sort by lower bound
+    ranges.sort(key=lambda p: p[0])
+
+    # 3. merge overlapping / adjacent intervals
+    merged = []
+    cur_low, cur_high = ranges[0]
+
+    for low, high in ranges[1:]:
+        if low <= cur_high + 1:                # overlap or directly adjacent
+            if high > cur_high:
+                cur_high = high
+        else:
+            merged.append((cur_low, cur_high))
+            cur_low, cur_high = low, high
+
+    merged.append((cur_low, cur_high))          # add the last interval
+
+    # -----------------------------------------------------------------
+    # 4. sum their lengths
+    total = sum(high - low + 1 for low, high in merged)
+    return total
+
+
 def solve_part1():
     tm_start = time.time()
     result_part1 = 0
@@ -67,7 +130,8 @@ def solve_part2():
     tm_start = time.time()
     result_part2 = 0
 
-    ic("DEBUG: TODO solve_part2()")
+    # ic("DEBUG: TODO solve_part2()")
+    result_part2 = solve_part2_with_ai(input_lines)
 
     tm_end = time.time()
     print(f"DEBUG: solve_part2 Begin: {time.ctime(tm_start)}")
@@ -79,8 +143,6 @@ def solve_part2():
 
 if __name__ == "__main__":
     solve_part1()
-    # check_valid_id_part2("1010")
-    # check_valid_id_part2("1011")
     solve_part2()
     pass
 
