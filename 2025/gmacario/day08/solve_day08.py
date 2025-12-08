@@ -1,3 +1,4 @@
+import math
 import time
 
 from typing import List, Tuple
@@ -55,7 +56,7 @@ class DSU:
         # ic(f"new self.parent[{rb}]={ra}, self.size[{ra}]={self.size[ra]}")
 
 
-def solve_day08_ai(input_lines: List[str]) -> int:
+def solve_day08_part1_ai(input_lines: List[str]) -> int:
     """
     Returns the product of the sizes of the three largest circuits after
     joining the 1000 closest pairs of points described by `input_lines`.
@@ -140,12 +141,86 @@ def solve_day08_ai(input_lines: List[str]) -> int:
     return sizes[0] * sizes[1] * sizes[2]
 
 
+def solve_day08_part2_ai(input_lines: List[str]) -> int:
+    """
+    Returns the product of the X coordinates of the two junction boxes
+    that are connected by the last edge added when building a minimum-
+    spanning tree of all boxes (i.e. the edge that finally makes the whole
+    graph a single component).
+    """
+
+    # ---------- 1. parse input ----------
+    points: List[Tuple[int, int, int]] = []
+    for line in input_lines:
+        line = line.strip()
+        if not line:
+            continue
+        x_str, y_str, z_str = line.split(',')
+        points.append((int(x_str), int(y_str), int(z_str)))
+
+    n = len(points)
+    if n < 2:
+        # Degenerate case – no edge exists
+        return 0
+
+    # ---------- 2. helper for squared distance ----------
+    def sq_dist(i: int, j: int) -> int:
+        xi, yi, zi = points[i]
+        xj, yj, zj = points[j]
+        dx = xi - xj
+        dy = yi - yj
+        dz = zi - zj
+        return dx * dx + dy * dy + dz * dz
+
+    # ---------- 3. Prim's algorithm (array version) ----------
+    visited = [False] * n
+    best_dist = [math.inf] * n          # squared distance to the tree
+    best_parent = [-1] * n              # vertex in the tree giving that distance
+
+    # start with vertex 0
+    visited[0] = True
+    for v in range(1, n):
+        best_dist[v] = sq_dist(0, v)
+        best_parent[v] = 0
+
+    edges_added = 0
+    last_edge = (0, 0)   # placeholder
+
+    while edges_added < n - 1:
+        # 1️⃣ pick the not visited vertex with minimal best_dist
+        min_dist = math.inf
+        v = -1
+        for i in range(n):
+            if not visited[i] and best_dist[i] < min_dist:
+                min_dist = best_dist[i]
+                v = i
+
+        # v is guaranteed to exist because the graph is complete
+        visited[v] = True
+        edges_added += 1
+        last_edge = (best_parent[v], v)
+
+        # 2️⃣ update best distances for the remaining vertices
+        for u in range(n):
+            if visited[u]:
+                continue
+            d = sq_dist(v, u)
+            if d < best_dist[u]:
+                best_dist[u] = d
+                best_parent[u] = v
+
+    # ---------- 4. compute answer ----------
+    x1 = points[last_edge[0]][0]
+    x2 = points[last_edge[1]][0]
+    return x1 * x2
+
+
 def solve_part1():
     tm_start = time.time()
     result_part1 = 0
 
     # ic("DEBUG: TODO solve_part1()")
-    result_part1 = solve_day08_ai(input_lines)
+    result_part1 = solve_day08_part1_ai(input_lines)
 
     tm_end = time.time()
     print(f"DEBUG: solve_part1 Begin: {time.ctime(tm_start)}")
@@ -159,7 +234,8 @@ def solve_part2():
     tm_start = time.time()
     result_part2 = 0
 
-    ic("DEBUG: TODO solve_part2()")
+    # ic("DEBUG: TODO solve_part2()")
+    result_part2 = solve_day08_part2_ai(input_lines)
 
     tm_end = time.time()
     print(f"DEBUG: solve_part2 Begin: {time.ctime(tm_start)}")
