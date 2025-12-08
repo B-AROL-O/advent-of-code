@@ -1,5 +1,8 @@
 import time
 
+from collections import deque
+from typing import List
+
 # from icecream import ic
 
 CHALLENGE_DAY = 4
@@ -22,7 +25,7 @@ with open(INPUT_FILE, "r") as file:
 
 
 """
-Credits: TODO
+Credits: <https://openwebui.gmacario.it/c/c19b36fc-d4fe-4bdc-9ca9-f6b178edf237>
 
 Prompt:
 
@@ -40,9 +43,6 @@ Here is the full text of the challenge:
 
 (paste contents of day04/README.md)
 """
-from collections import deque
-from typing import List
-
 def solve_part2_with_ai(input_lines: List[str]) -> int:
     """
     Implements the Part 2 solution described above.
