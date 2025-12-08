@@ -99,7 +99,7 @@ def solve_beams(grid, start_row, start_col):
 
 
 """
-Credits: TODO
+Credits: <https://openwebui.gmacario.it/c/1e32670b-2765-4904-9885-827afbdb76a9>
 
 Prompt:
 
