@@ -12,9 +12,9 @@ Perform the following steps:
 8. Adjust `solve_daynn.py` accordingly
 9. Test the solution to Part 1 of the challenge:
 
-    ```bash
-    uv run daynn/solve_daynn.py
-    ```
+   ```bash
+   uv run daynn/solve_daynn.py
+   ```
 
 10. Ensure that the solution to `sample_daynn.txt` matches the one in the `README.md`
 11. Repeat steps 7-10 until the solution to Part 1 passes with the sample data
