@@ -2,7 +2,9 @@ import operator
 import time
 
 from functools import reduce
-from icecream import ic
+from typing import List
+
+# from icecream import ic
 
 CHALLENGE_YEAR = 2025
 CHALLENGE_DAY = 6
@@ -113,9 +115,6 @@ Here is the full text of the challenge:
 
 (paste contents of README.md)
 """
-from typing import List
-import math
-
 def solve_part2_with_ai(input_lines: List[str]) -> int:
     """
     Solve Advent of Code 2025 – Day 6, Part 2.
