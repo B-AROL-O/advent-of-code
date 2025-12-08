@@ -22,11 +22,35 @@ with open(INPUT_FILE, "r") as file:
 ic(input_lines)
 
 
+"""
+Credits: TODO
+
+Prompt:
+
+Solve Part Two of the following challenge by creating a Python function with the following signature:
+
+```python
+def solve_part2_with_ai(input_lines: List[str]) -> int
+```
+
+where `input_lines` is a list of string produced by reading the input file as per the provided example:
+
+(paste contents of day00/sample_day00.txt)
+
+Here is the full text of the challenge:
+
+(paste contents of day00/README.md)
+"""
+# def solve_part2_with_ai(input_lines: List[str]) ->int:
+#   pass  # TODO
+
+
 def solve_part1():
     tm_start = time.time()
     result_part1 = 0
 
     ic("DEBUG: TODO solve_part1()")
+    # result_part1 = solve_part1_with_ai(input_lines)
 
     tm_end = time.time()
     print(f"DEBUG: solve_part1 Begin: {time.ctime(tm_start)}")
@@ -41,6 +65,7 @@ def solve_part2():
     result_part2 = 0
 
     ic("DEBUG: TODO solve_part2()")
+    # result_part2 = solve_part2_with_ai(input_lines)
 
     tm_end = time.time()
     print(f"DEBUG: solve_part2 Begin: {time.ctime(tm_start)}")
