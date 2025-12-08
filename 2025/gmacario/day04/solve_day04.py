@@ -1,7 +1,7 @@
 import time
 
 from collections import deque
-from typing import List
+from typing import Deque, List, Tuple
 
 # from icecream import ic
 
@@ -79,7 +79,7 @@ def solve_part2_with_ai(input_lines: List[str]) -> int:
             deg[i][j] = cnt
 
     # 4. initialise queue with cells of degree < 4
-    q = deque()
+    q: Deque[Tuple[int, int]] = deque()
     for i in range(rows):
         for j in range(cols):
             if paper[i][j] and deg[i][j] < 4:
