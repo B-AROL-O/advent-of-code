@@ -25,12 +25,12 @@ def main():
         b = int(interval.split('-')[1])
         # print(a, b)
         for i in range(a, b+1):
-            l = len(str(i))
+            ll = len(str(i))
             numstr = str(i)
-            for d in range(1, int(l/2)+1):
-                if l % d > 0:
+            for d in range(1, int(ll/2)+1):
+                if ll % d > 0:
                     continue
-                t = int(l/d)
+                t = int(ll/d)
                 if numstr[:d] * t == numstr:
                     # print("invalid: " + numstr)
                     sum += i
