@@ -27,6 +27,29 @@ Credits: TODO
 
 Prompt:
 
+Solve Part One of the following challenge by creating a Python function with the following signature:
+
+```python
+def solve_part1_with_ai(input_lines: List[str]) -> int
+```
+
+where `input_lines` is a list of string produced by reading the input file as per the provided example:
+
+Make sure you get the same result as shown in the example.
+
+Here is the full text of the challenge:
+
+(paste contents of day09/README.md)
+"""
+# def solve_part1_with_ai(input_lines: List[str]) ->int:
+#   pass  # TODO
+
+
+"""
+Credits: TODO
+
+Prompt:
+
 Solve Part Two of the following challenge by creating a Python function with the following signature:
 
 ```python
@@ -35,7 +58,7 @@ def solve_part2_with_ai(input_lines: List[str]) -> int
 
 where `input_lines` is a list of string produced by reading the input file as per the provided example:
 
-(paste contents of day00/sample_day00.txt)
+Make sure you get the same result as shown in the example.
 
 Here is the full text of the challenge:
 
