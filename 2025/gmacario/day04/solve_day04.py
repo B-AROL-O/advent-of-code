@@ -1,6 +1,9 @@
 import time
 
-from icecream import ic
+from collections import deque
+from typing import Deque, List, Tuple
+
+# from icecream import ic
 
 CHALLENGE_DAY = 4
 
@@ -19,6 +22,90 @@ with open(INPUT_FILE, "r") as file:
     input_lines = [line.rstrip() for line in file]
 
 # ic(input_lines)
+
+
+"""
+Credits: <https://openwebui.gmacario.it/c/c19b36fc-d4fe-4bdc-9ca9-f6b178edf237>
+
+Prompt:
+
+Solve Part Two of the following challenge by creating a Python function with the following signature:
+
+```python
+def solve_part2_with_ai(input_lines: List[str]) -> int
+```
+
+where `input_lines` is a list of string produced by reading the input file as per the provided example:
+
+(paste contents of day04/sample_day04.txt)
+
+Here is the full text of the challenge:
+
+(paste contents of day04/README.md)
+"""
+def solve_part2_with_ai(input_lines: List[str]) -> int:
+    """
+    Implements the Part 2 solution described above.
+    Returns the total number of '@' cells that can be removed.
+    """
+    if not input_lines:
+        return 0
+
+    rows = len(input_lines)
+    cols = len(input_lines[0])
+
+    # 1. parse the grid
+    paper = [[c == '@' for c in line] for line in input_lines]
+
+    # 2. auxiliary structures
+    removed = [[False] * cols for _ in range(rows)]
+    deg = [[0] * cols for _ in range(rows)]
+
+    # 8 possible neighbour offsets
+    neigh_offsets = [(-1, -1), (-1, 0), (-1, 1),
+                     (0, -1),           (0, 1),
+                     (1, -1),  (1, 0),  (1, 1)]
+
+    # 3. initial degree computation
+    for i in range(rows):
+        for j in range(cols):
+            if not paper[i][j]:
+                continue
+            cnt = 0
+            for di, dj in neigh_offsets:
+                ni, nj = i + di, j + dj
+                if 0 <= ni < rows and 0 <= nj < cols and paper[ni][nj]:
+                    cnt += 1
+            deg[i][j] = cnt
+
+    # 4. initialise queue with cells of degree < 4
+    q: Deque[Tuple[int, int]] = deque()
+    for i in range(rows):
+        for j in range(cols):
+            if paper[i][j] and deg[i][j] < 4:
+                q.append((i, j))
+
+    removed_cnt = 0
+
+    # 5. iterative removal
+    while q:
+        i, j = q.popleft()
+        if removed[i][j]:
+            continue            # may have been queued earlier
+        removed[i][j] = True
+        removed_cnt += 1
+
+        # decrease degree of still‑present neighbours
+        for di, dj in neigh_offsets:
+            ni, nj = i + di, j + dj
+            if 0 <= ni < rows and 0 <= nj < cols:
+                if paper[ni][nj] and not removed[ni][nj]:
+                    deg[ni][nj] -= 1
+                    # we only need to enqueue when it just crossed the threshold
+                    if deg[ni][nj] == 3:
+                        q.append((ni, nj))
+
+    return removed_cnt
 
 
 def solve_part1():
@@ -87,7 +174,8 @@ def solve_part2():
     tm_start = time.time()
     result_part2 = 0
 
-    ic("DEBUG: TODO solve_part2()")
+    # ic("DEBUG: TODO solve_part2()")
+    result_part2 = solve_part2_with_ai(input_lines)
 
     tm_end = time.time()
     print(f"DEBUG: solve_part2 Begin: {time.ctime(tm_start)}")

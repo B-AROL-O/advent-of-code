@@ -2,13 +2,14 @@ import time
 
 from icecream import ic
 
+CHALLENGE_YEAR = 2025
 CHALLENGE_DAY = 0
 
-CHALLENGE_URL = f"https://adventofcode.com/2025/day/{CHALLENGE_DAY}"
+CHALLENGE_URL = f"https://adventofcode.com/{CHALLENGE_YEAR}/day/{CHALLENGE_DAY}"
 INPUT_FILE = f"day{CHALLENGE_DAY:02}/sample_day{CHALLENGE_DAY:02}.txt"
 # INPUT_FILE=f"day{CHALLENGE_DAY:02}/input_day{CHALLENGE_DAY:02}.txt"
 
-print(f"INFO:  Advent of Code 2025 - Day {CHALLENGE_DAY}")
+print(f"INFO:  Advent of Code {CHALLENGE_YEAR} - Day {CHALLENGE_DAY}")
 print(f"INFO:  URL: {CHALLENGE_URL}")
 print(f"INFO:  INPUT_FILE: {INPUT_FILE}")
 
@@ -21,11 +22,58 @@ with open(INPUT_FILE, "r") as file:
 ic(input_lines)
 
 
+"""
+Credits: TODO
+
+Prompt:
+
+Solve Part One of the following challenge by creating a Python function with the following signature:
+
+```python
+def solve_part1_with_ai(input_lines: List[str]) -> int
+```
+
+where `input_lines` is a list of string produced by reading the input file as per the provided example:
+
+Make sure you get the same result as shown in the example.
+
+Here is the full text of the challenge:
+
+(paste contents of day09/README.md)
+"""
+# def solve_part1_with_ai(input_lines: List[str]) ->int:
+#   pass  # TODO
+
+
+"""
+Credits: TODO
+
+Prompt:
+
+Solve Part Two of the following challenge by creating a Python function with the following signature:
+
+```python
+def solve_part2_with_ai(input_lines: List[str]) -> int
+```
+
+where `input_lines` is a list of string produced by reading the input file as per the provided example:
+
+Make sure you get the same result as shown in the example.
+
+Here is the full text of the challenge:
+
+(paste contents of day00/README.md)
+"""
+# def solve_part2_with_ai(input_lines: List[str]) ->int:
+#   pass  # TODO
+
+
 def solve_part1():
     tm_start = time.time()
     result_part1 = 0
 
     ic("DEBUG: TODO solve_part1()")
+    # result_part1 = solve_part1_with_ai(input_lines)
 
     tm_end = time.time()
     print(f"DEBUG: solve_part1 Begin: {time.ctime(tm_start)}")
@@ -40,6 +88,7 @@ def solve_part2():
     result_part2 = 0
 
     ic("DEBUG: TODO solve_part2()")
+    # result_part2 = solve_part2_with_ai(input_lines)
 
     tm_end = time.time()
     print(f"DEBUG: solve_part2 Begin: {time.ctime(tm_start)}")
@@ -51,9 +100,6 @@ def solve_part2():
 
 if __name__ == "__main__":
     solve_part1()
-    # check_valid_id_part2("1010")
-    # check_valid_id_part2("1011")
     solve_part2()
-    pass
 
 # EOF
