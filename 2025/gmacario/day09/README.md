@@ -1,36 +1,102 @@
-# Boilerplate for AoC-2025 daily solver
+# --- Day 9: Movie Theater ---
 
-Perform the following steps:
+<https://adventofcode.com/2025/day/9>
 
-1. Copy `day00` to the desired day `daynn`
-2. Rename `solve_day00.py` to `solve_daynn.py`
-3. Rename `sample_day00.txt` to `sample_daynn.txt`
-4. Copy the text of Day _nn_ challenge into `README.md`. Make sure to correct Markdown formatting
-5. Copy the sample input for Day _nn_ challenge into `sample_daynn.txt`
-6. Fetch the actual input into `input_daynn.txt`
-7. Read and understand `README.md`
-8. Adjust `solve_daynn.py` accordingly
-9. Test the solution to Part 1 of the challenge:
+You slide down the [firepole](https://en.wikipedia.org/wiki/Fireman%27s_pole) in the corner of the playground and land in the North Pole base movie theater!
 
-   ```bash
-   uv run daynn/solve_daynn.py
-   ```
+The movie theater has a big tile floor with an interesting pattern. Elves here are redecorating the theater by switching out some of the square tiles in the big grid they form. Some of the tiles are _red_; the Elves would like to find the largest rectangle that uses red tiles for two of its opposite corners. They even have a list of where the red tiles are located in the grid (your puzzle input).
 
-10. Ensure that the solution to `sample_daynn.txt` matches the one in the `README.md`
-11. Repeat steps 7-10 until the solution to Part 1 passes with the sample data
-12. Uncomment line 10 of `solve_daynn.py`, then run the solver against `input_daynn.txt`
+For example:
 
-    ```bash
-    uv run daynn/solve_daynn.py
-    ```
+```text
+7,1
+11,1
+11,7
+9,7
+9,5
+2,5
+2,3
+7,3
+```
 
-13. Paste the value in line `INFO:  Daynn solve_part1 result: xxx` into the text field of AoC-2025 Day _nn_ challenge
-14. If everything works, do a `git commit` with the working changes, then proceed to solving Part 2
-15. Comment line 10 of `solve_daynn.py`
-16. Update `README.md` with the text for Part 2 of the challenge
-17. Repeat steps 7-12 until Part 2 is solved
-18. If everything works, do a `git commit` with the working changes
-19. Update the code until all Super-Linter checks are green
-20. Create a Pull Request against <https://github.com/B-AROL-O/advent-of-code>
+Showing red tiles as `#` and other tiles as `.`, the above arrangement of red tiles would look like this:
+
+```text
+..............
+.......#...#..
+..............
+..#....#......
+..............
+..#......#....
+..............
+.........#.#..
+..............
+```
+
+You can choose any two red tiles as the opposite corners of your rectangle; your goal is to find the largest rectangle possible.
+
+For example, you could make a rectangle (shown as `O`) with an area of `24` between `2,5` and `9,7`:
+
+```text
+..............
+.......#...#..
+..............
+..#....#......
+..............
+..OOOOOOOO....
+..OOOOOOOO....
+..OOOOOOOO.#..
+..............
+```
+
+Or, you could make a rectangle with area `35` between `7,1` and `11,7`:
+
+```text
+..............
+.......OOOOO..
+.......OOOOO..
+..#....OOOOO..
+.......OOOOO..
+..#....OOOOO..
+.......OOOOO..
+.......OOOOO..
+..............
+```
+
+You could even make a thin rectangle with an area of only `6` between `7,3` and `2,3`:
+
+```text
+..............
+.......#...#..
+..............
+..OOOOOO......
+..............
+..#......#....
+..............
+.........#.#..
+..............
+```
+
+Ultimately, the largest rectangle you can make in this example has area _`50`_. One way to do this is between `2,5` and `11,1`:
+
+```text
+..............
+..OOOOOOOOOO..
+..OOOOOOOOOO..
+..OOOOOOOOOO..
+..OOOOOOOOOO..
+..OOOOOOOOOO..
+..............
+.........#.#..
+..............
+```
+
+Using two red tiles as opposite corners, _what is the largest area of any rectangle you can make?_
+
+To begin, [get your puzzle input](https://adventofcode.com/2025/day/9/input).
+
+Answer: TODO
+
+You can also \[Share\] this puzzle.
 
 <!-- EOF -->
