@@ -93,9 +93,95 @@ Ultimately, the largest rectangle you can make in this example has area _`50`_. 
 
 Using two red tiles as opposite corners, _what is the largest area of any rectangle you can make?_
 
-To begin, [get your puzzle input](https://adventofcode.com/2025/day/9/input).
+Your puzzle answer was `4750092396`.
+
+**The first half of this puzzle is complete! It provides one gold star: \***
+
+## --- Part Two ---
+
+The Elves just remembered: they can only switch out tiles that are _red_ or _green_. So, your rectangle can only include red or green tiles.
+
+In your list, every red tile is connected to the red tile before and after it by a straight line of _green tiles_. The list wraps, so the first red tile is also connected to the last red tile. Tiles that are adjacent in your list will always be on either the same row or the same column.
+
+Using the same example as before, the tiles marked `X` would be green:
+
+```text
+..............
+.......#XXX#..
+.......X...X..
+..#XXXX#...X..
+..X........X..
+..#XXXXXX#.X..
+.........X.X..
+.........#X#..
+..............
+```
+
+In addition, all of the tiles _inside_ this loop of red and green tiles are _also_ green. So, in this example, these are the green tiles:
+
+```text
+..............
+.......#XXX#..
+.......XXXXX..
+..#XXXX#XXXX..
+..XXXXXXXXXX..
+..#XXXXXX#XX..
+.........XXX..
+.........#X#..
+..............
+```
+
+The remaining tiles are never red nor green.
+
+The rectangle you choose still must have red tiles in opposite corners, but any other tiles it includes must now be red or green. This significantly limits your options.
+
+For example, you could make a rectangle out of red and green tiles with an area of 15 between `7,3` and `11,1`:
+
+```text
+..............
+.......OOOOO..
+.......OOOOO..
+..#XXXXOOOOO..
+..XXXXXXXXXX..
+..#XXXXXX#XX..
+.........XXX..
+.........#X#..
+..............
+```
+
+Or, you could make a thin rectangle with an area of `3` between `9,7` and `9,5`:
+
+```text
+..............
+.......#XXX#..
+.......XXXXX..
+..#XXXX#XXXX..
+..XXXXXXXXXX..
+..#XXXXXXOXX..
+.........OXX..
+.........OX#..
+..............
+```
+
+The largest rectangle you can make in this example using only red and green tiles has area _`24`_. One way to do this is between `9,5` and `2,3`:
+
+```text
+..............
+.......#XXX#..
+.......XXXXX..
+..OOOOOOOOXX..
+..OOOOOOOOXX..
+..OOOOOOOOXX..
+.........XXX..
+.........#X#..
+..............
+```
+
+Using two red tiles as opposite corners, _what is the largest area of any rectangle you can make using only red and green tiles?_
 
 Answer: TODO
+
+Although it hasn't changed, you can still [get your puzzle input](https://adventofcode.com/2025/day/9/input).
 
 You can also \[Share\] this puzzle.
 
