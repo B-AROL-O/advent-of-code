@@ -28,7 +28,7 @@
         "mhutchie.git-graph",
         "ms-python.black-formatter",
         "ms-toolsai.jupyter",
-        "Pycom.pymakr"
+        "Pycom.pymakr-preview"
       ]
     }
   }
