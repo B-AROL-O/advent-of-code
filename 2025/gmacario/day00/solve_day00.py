@@ -3,7 +3,7 @@ import time
 from icecream import ic
 
 CHALLENGE_YEAR = 2025
-CHALLENGE_DAY = 0
+CHALLENGE_DAY = 0  # TODO: Adjust
 
 CHALLENGE_URL = f"https://adventofcode.com/{CHALLENGE_YEAR}/day/{CHALLENGE_DAY}"
 INPUT_FILE = f"day{CHALLENGE_DAY:02}/sample_day{CHALLENGE_DAY:02}.txt"
@@ -39,7 +39,7 @@ Make sure you get the same result as shown in the example.
 
 Here is the full text of the challenge:
 
-(paste contents of day09/README.md)
+(paste contents of daynn/README.md)
 """
 # def solve_part1_with_ai(input_lines: List[str]) ->int:
 #   pass  # TODO
@@ -62,7 +62,7 @@ Make sure you get the same result as shown in the example.
 
 Here is the full text of the challenge:
 
-(paste contents of day00/README.md)
+(paste contents of daynn/README.md)
 """
 # def solve_part2_with_ai(input_lines: List[str]) ->int:
 #   pass  # TODO
