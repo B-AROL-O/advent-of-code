@@ -1,7 +1,6 @@
 from __future__ import annotations
 import collections
 import re
-import sys
 import time
 
 from functools import lru_cache
@@ -14,7 +13,7 @@ CHALLENGE_DAY = 10
 
 CHALLENGE_URL = f"https://adventofcode.com/{CHALLENGE_YEAR}/day/{CHALLENGE_DAY}"
 INPUT_FILE = f"day{CHALLENGE_DAY:02}/sample_day{CHALLENGE_DAY:02}.txt"
-# INPUT_FILE=f"day{CHALLENGE_DAY:02}/input_day{CHALLENGE_DAY:02}.txt"
+INPUT_FILE=f"day{CHALLENGE_DAY:02}/input_day{CHALLENGE_DAY:02}.txt"
 
 print(f"INFO:  Advent of Code {CHALLENGE_YEAR} - Day {CHALLENGE_DAY}")
 print(f"INFO:  URL: {CHALLENGE_URL}")
@@ -145,6 +144,7 @@ def min_presses(buttons: List[List[int]], target: List[int]) -> int:
     starting from the zero vector.
     `buttons[i]` is the list of counters touched by button i.
     """
+    ic(f"min_presses(buttons={buttons}, target={target})")
     if not target:
         return 0
 
@@ -152,6 +152,7 @@ def min_presses(buttons: List[List[int]], target: List[int]) -> int:
     buttons = sorted(buttons, key=lambda b: -len(b))
     n = len(buttons)
     m = len(target)
+    ic(buttons, n, m)
 
     # pre‑compute the maximal size among the remaining buttons for the bound
     max_button_size_suffix = [0] * (n + 1)
@@ -159,10 +160,12 @@ def min_presses(buttons: List[List[int]], target: List[int]) -> int:
     for i in range(n - 1, -1, -1):
         cur = max(cur, len(buttons[i]))
         max_button_size_suffix[i] = cur
+    ic(max_button_size_suffix)
 
     @lru_cache(maxsize=None)
     def dfs(i: int, remaining: Tuple[int, ...]) -> int:
         """minimum extra presses using buttons i … n-1"""
+        ic(f"dfs(i={i}, remaining={remaining})")
         if i == n:
             # all counters must already be satisfied
             return 0 if all(v == 0 for v in remaining) else INF
@@ -230,6 +233,7 @@ def min_presses(buttons: List[List[int]], target: List[int]) -> int:
 
 
 def solve_part2_with_ai(input_lines: List[str]) -> int:
+    ic(f"solve_part2_with_ai(input_lines={input_lines})")
     total = 0
     for line in input_lines:
         line = line.strip()
