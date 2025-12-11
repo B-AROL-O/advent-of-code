@@ -3,7 +3,7 @@ import time
 
 from typing import List, Dict
 
-from icecream import ic
+# from icecream import ic
 
 CHALLENGE_YEAR = 2025
 CHALLENGE_DAY = 11
