@@ -106,7 +106,7 @@ def solve_part1_with_ai(input_lines: List[str]) -> int:
 
 
 """
-Credits: TODO
+Credits: <http://hw2482.tail2b437.ts.net:3000/c/31d18aa1-cf84-4ec5-9aa2-c930e3cee02c>
 
 Prompt:
 
@@ -124,8 +124,55 @@ Here is the full text of the challenge:
 
 (paste contents of daynn/README.md)
 """
-# def solve_part2_with_ai(input_lines: List[str]) ->int:
-#   pass  # TODO
+def solve_part2_with_ai(input_lines: List[str]) -> int:
+    """
+    Counts all directed paths from node 'svr' to node 'out' that visit
+    both 'dac' and 'fft' (in any order).  The input is a list of strings,
+    each of the form "node: child1 child2 ...".
+    """
+    # ---------- 1. parse the graph ----------
+    adj: Dict[str, List[str]] = {}
+    for line in input_lines:
+        line = line.strip()
+        if not line:
+            continue                     # skip empty lines
+        # split at the first colon
+        if ':' not in line:
+            continue                     # malformed line – ignore
+        left, right = line.split(':', 1)
+        node = left.strip()
+        children = [c for c in right.strip().split() if c]
+        adj[node] = children
+
+    # ---------- 2. DP with memoisation ----------
+    DAC_BIT = 1   # 0b01
+    FFT_BIT = 2   # 0b10
+
+    from functools import lru_cache
+    import sys
+    sys.setrecursionlimit(1000000)   # just in case the graph is deep
+
+    @lru_cache(maxsize=None)
+    def dp(node: str, mask: int) -> int:
+        """Number of paths from `node` to 'out' that, together with the
+        already‑visited set encoded in `mask`, end up having visited both
+        dac and fft."""
+        if node == 'out':
+            return 1 if mask == (DAC_BIT | FFT_BIT) else 0
+
+        # update mask with the current node
+        if node == 'dac':
+            mask |= DAC_BIT
+        if node == 'fft':
+            mask |= FFT_BIT
+
+        total = 0
+        for child in adj.get(node, ()):
+            total += dp(child, mask)
+        return total
+
+    # start from 'svr' with an empty visited set
+    return dp('svr', 0)
 
 
 def solve_part1():
@@ -147,8 +194,8 @@ def solve_part2():
     tm_start = time.time()
     result_part2 = 0
 
-    ic("DEBUG: TODO solve_part2()")
-    # result_part2 = solve_part2_with_ai(input_lines)
+    # ic("DEBUG: TODO solve_part2()")
+    result_part2 = solve_part2_with_ai(input_lines)
 
     tm_end = time.time()
     print(f"DEBUG: solve_part2 Begin: {time.ctime(tm_start)}")

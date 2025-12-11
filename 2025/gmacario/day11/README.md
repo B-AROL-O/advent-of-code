@@ -41,9 +41,54 @@ In total, there are _`5`_ different paths leading from `you` to `out`.
 
 _How many different paths lead from `you` to `out`?_
 
-To begin, [get your puzzle input](https://adventofcode.com/2025/day/11/input).
+Your puzzle answer was `477`.
+
+**The first half of this puzzle is complete! It provides one gold star: \***
+
+## --- Part Two ---
+
+Thanks in part to your analysis, the Elves have figured out a little bit about the issue. They now know that the problematic data path passes through both `dac` (a [digital-to-analog converter](https://en.wikipedia.org/wiki/Digital-to-analog_converter)) and `fft` (a device which performs a [fast Fourier transform](https://en.wikipedia.org/wiki/Fast_Fourier_transform)).
+
+They're still not sure which specific path is the problem, and so they now need you to find every path from svr (the server rack) to out. However, the paths you find must all also visit both `dac` _and_ `fft` (in any order).
+
+For example:
+
+```text
+svr: aaa bbb
+aaa: fft
+fft: ccc
+bbb: tty
+tty: ccc
+ccc: ddd eee
+ddd: hub
+hub: fff
+eee: dac
+dac: fff
+fff: ggg hhh
+ggg: out
+hhh: out
+```
+
+This new list of devices contains many paths from `svr` to `out`:
+
+```text
+svr,aaa,fft,ccc,ddd,hub,fff,ggg,out
+svr,aaa,fft,ccc,ddd,hub,fff,hhh,out
+svr,aaa,fft,ccc,eee,dac,fff,ggg,out
+svr,aaa,fft,ccc,eee,dac,fff,hhh,out
+svr,bbb,tty,ccc,ddd,hub,fff,ggg,out
+svr,bbb,tty,ccc,ddd,hub,fff,hhh,out
+svr,bbb,tty,ccc,eee,dac,fff,ggg,out
+svr,bbb,tty,ccc,eee,dac,fff,hhh,out
+```
+
+However, only _`2`_ paths from `svr` to `out` visit both `dac` and `fft`.
+
+Find all of the paths that lead from `svr` to `out`. _How many of those paths visit both `dac` and `fft`?_
 
 Answer: TODO
+
+Although it hasn't changed, you can still [get your puzzle input](https://adventofcode.com/2025/day/11/input).
 
 You can also \[Share\] this puzzle.
 
