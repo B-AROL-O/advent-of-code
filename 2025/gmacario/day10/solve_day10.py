@@ -91,7 +91,7 @@ def solve_part1_with_ai(input_lines: List[str]) -> int:
         # ----- BFS over light configurations -----
         max_state = 1 << n
         dist = [-1] * max_state
-        q = collections.deque()
+        q = collections.deque()  # type: ignore
 
         start = 0
         dist[start] = 0
