@@ -1,6 +1,6 @@
 # --- Day 4: Printing Department ---
 
-<>
+<https://adventofcode.com/2025/day/4>
 
 You ride the escalator down to the printing department. They're clearly getting ready for Christmas; they have lots of large rolls of paper everywhere, and there's even a massive printer in the corner (to handle the really big print jobs).
 
