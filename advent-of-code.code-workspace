@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "serial://dev/ttyACM0",
+			"uri": "serial://%2fdev%2fttyacm0/"
+		}
+	],
+	"settings": {}
+}
