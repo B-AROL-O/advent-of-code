@@ -11,6 +11,7 @@ This repository contains the solutions to recent editions of [Advent of Code](ht
 - [Alessandro Varesi](https://github.com/alv67) solutions: [2023](https://github.com/AB-Normals/advent-of-code-2023), [2024](https://github.com/AB-Normals/advent-of-code-2024), [2025](https://github.com/AB-Normals/advent-of-code-2025)
 - [Davide Macario](https://github.com/davmacario) solutions: [2023 to 2025](https://github.com/davmacario/aoc)
 - [Eric Orso](https://github.com/OrsoEric) solutions: [2024](https://github.com/OrsoEric/2024-Advent-of-Code)
+- [prof. Giovanni Squillero](https://github.com/squillero) solutions: [2024 to 2025](https://github.com/squillero/advent-of-code/)
 
 ## Copyright and license
 
