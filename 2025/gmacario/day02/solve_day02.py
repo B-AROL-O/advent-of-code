@@ -4,29 +4,31 @@ import time
 
 CHALLENGE_DAY = 2
 
-CHALLENGE_URL = f"https://adventofcode.com/2025/day/{CHALLENGE_DAY}"
-INPUT_FILE = f"day{CHALLENGE_DAY:02}/sample_day{CHALLENGE_DAY:02}.txt"
-INPUT_FILE = f"day{CHALLENGE_DAY:02}/input_day{CHALLENGE_DAY:02}.txt"
+def load_input() -> list[str]:
+    CHALLENGE_URL = f"https://adventofcode.com/2025/day/{CHALLENGE_DAY}"
+    INPUT_FILE = f"day{CHALLENGE_DAY:02}/sample_day{CHALLENGE_DAY:02}.txt"
+    INPUT_FILE = f"day{CHALLENGE_DAY:02}/input_day{CHALLENGE_DAY:02}.txt"
 
-print(f"INFO:  Advent of Code 2025 - Day {CHALLENGE_DAY}")
-print(f"INFO:  URL: {CHALLENGE_URL}")
+    print(f"INFO:  Advent of Code 2025 - Day {CHALLENGE_DAY}")
+    print(f"INFO:  URL: {CHALLENGE_URL}")
 
-# ic()
+    # ic()
 
-# Read the puzzle input into a list of strings, one per line
-with open(INPUT_FILE, "r") as file:
-    input_lines = [line.rstrip() for line in file]
+    # Read the puzzle input into a list of strings, one per line
+    with open(INPUT_FILE, "r") as file:
+        input_lines = [line.rstrip() for line in file]
 
-products_id_range = []
-for p in input_lines[0].split(","):
-    p_range = p.split("-")
-    # ic(p_range)
-    p_from = int(p_range[0])
-    p_to = int(p_range[1])
-    products_id_range.append({"from": p_from, "to": p_to})
-    pass
+    products_id_range = []
+    for p in input_lines[0].split(","):
+        p_range = p.split("-")
+        # ic(p_range)
+        p_from = int(p_range[0])
+        p_to = int(p_range[1])
+        products_id_range.append({"from": p_from, "to": p_to})
+        pass
 
-# ic(products_id_range)
+    # ic(products_id_range)
+    return products_id_range
 
 
 """
@@ -83,7 +85,7 @@ def check_valid_id_part2(id: str) -> bool:
     return True
 
 
-def solve_part1():
+def solve_part1(products_id_range):
     tm_start = time.time()
     result_part1 = 0
 
@@ -98,14 +100,14 @@ def solve_part1():
     result_part1 = sum_invalid_ids_part1
 
     tm_end = time.time()
-    print(f"DEBUG: solve_part1 Begin: {time.ctime(tm_start)}")
-    print(f"DEBUG: solve_part1 End:   {time.ctime(tm_end)}")
+    # print(f"DEBUG: solve_part1 Begin: {time.ctime(tm_start)}")
+    # print(f"DEBUG: solve_part1 End:   {time.ctime(tm_end)}")
     print(f"DEBUG: solve_part1 Delta: {tm_end - tm_start}")
     print(f"INFO:  Day{CHALLENGE_DAY:02} solve_part1 result: {result_part1}")
     return result_part1
 
 
-def solve_part2():
+def solve_part2(products_id_range):
     tm_start = time.time()
     result_part2 = 0
 
@@ -120,18 +122,22 @@ def solve_part2():
     result_part2 = sum_invalid_ids_part2
 
     tm_end = time.time()
-    print(f"DEBUG: solve_part2 Begin: {time.ctime(tm_start)}")
-    print(f"DEBUG: solve_part2 End:   {time.ctime(tm_end)}")
+    # print(f"DEBUG: solve_part2 Begin: {time.ctime(tm_start)}")
+    # print(f"DEBUG: solve_part2 End:   {time.ctime(tm_end)}")
     print(f"DEBUG: solve_part2 Delta: {tm_end - tm_start}")
     print(f"INFO:  Day{CHALLENGE_DAY:02} solve_part2 result: {result_part2}")
     return result_part2
 
 
+def solve_daily_challenge(day: int):
+    assert day == CHALLENGE_DAY
+    products_id_range = load_input()
+    solve_part1(products_id_range)
+    solve_part2(products_id_range)
+
+
 if __name__ == "__main__":
-    solve_part1()
-    # check_valid_id_part2("1010")
-    # check_valid_id_part2("1011")
-    solve_part2()
+    solve_daily_challenge(CHALLENGE_DAY)
     pass
 
 # EOF
